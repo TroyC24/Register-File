@@ -1,0 +1,16 @@
+module register (D, F, load, clock, reset);
+	input [31:0] D;
+	input load, clock, reset;
+	output reg [31:0] F;
+	
+	always @(posedge clock)
+	begin
+		if (reset)
+			F <= 0;
+		else if(load)
+			F <= D;
+		else 
+			F <= F;
+	end
+	
+endmodule
