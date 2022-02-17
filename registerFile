@@ -1,0 +1,49 @@
+module registerFile (A,B,C,RS1,RS2,RD,clock,reset,W);
+	input [31:0] C;
+	input [4:0] RS1,RS2,RD;
+	input clock,reset,W;
+	output [31:0] A,B;
+	
+	wire [31:0] D;
+	decoder dec0 (RD,D);
+	
+	wire [31:0] R0,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,R11,R12,R13,R14,R15,R16,R17,R18,R19,R20,R21,R22,R23,R24,R25,R26,R27,R28,R29,R30,R31;
+	
+	register reg0  (C, R0,  (W&D[0]),  clock, reset);
+	register reg1  (C, R1,  (W&D[1]),  clock, reset);
+	register reg2  (C, R2,  (W&D[2]),  clock, reset);
+	register reg3  (C, R3,  (W&D[3]),  clock, reset);
+	register reg4  (C, R4,  (W&D[4]),  clock, reset);
+	register reg5  (C, R5,  (W&D[5]),  clock, reset);
+	register reg6  (C, R6,  (W&D[6]),  clock, reset);
+	register reg7  (C, R7,  (W&D[7]),  clock, reset);
+	register reg8  (C, R8,  (W&D[8]),  clock, reset);
+	register reg9  (C, R9,  (W&D[9]),  clock, reset);
+	register reg10 (C, R10, (W&D[10]), clock, reset);
+	register reg11 (C, R11, (W&D[11]), clock, reset);
+	register reg12 (C, R12, (W&D[12]), clock, reset);
+	register reg13 (C, R13, (W&D[13]), clock, reset);
+	register reg14 (C, R14, (W&D[14]), clock, reset);
+	register reg15 (C, R15, (W&D[15]), clock, reset);
+	register reg16 (C, R16, (W&D[16]), clock, reset);
+	register reg17 (C, R17, (W&D[17]), clock, reset);
+	register reg18 (C, R18, (W&D[18]), clock, reset);
+	register reg19 (C, R19, (W&D[19]), clock, reset);
+	register reg20 (C, R20, (W&D[20]), clock, reset);
+	register reg21 (C, R21, (W&D[21]), clock, reset);
+	register reg22 (C, R22, (W&D[22]), clock, reset);
+	register reg23 (C, R23, (W&D[23]), clock, reset);
+	register reg24 (C, R24, (W&D[24]), clock, reset);
+	register reg25 (C, R25, (W&D[25]), clock, reset);
+	register reg26 (C, R26, (W&D[26]), clock, reset);
+	register reg27 (C, R27, (W&D[27]), clock, reset);
+	register reg28 (C, R28, (W&D[28]), clock, reset);
+	register reg29 (C, R29, (W&D[29]), clock, reset);
+	register reg30 (C, R30, (W&D[30]), clock, reset);
+	register reg31 (C, R31, (W&D[31]), clock, reset);
+
+	mux M1 (R0,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,R11,R12,R13,R14,R15,R16,R17,R18,R19,R20,R21,R22,R23,R24,R25,R26,R27,R28,R29,R30,R31,RS1,A);
+	
+	mux M2 (R0,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,R11,R12,R13,R14,R15,R16,R17,R18,R19,R20,R21,R22,R23,R24,R25,R26,R27,R28,R29,R30,R31,RS2,B);
+	
+endmodule
