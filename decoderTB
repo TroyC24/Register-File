@@ -1,0 +1,17 @@
+`timescale 1ns/1ps
+module decoderTB();
+	reg [4:0] S;
+	wire [31:0] F;
+
+	decoder uut (.S(S), .F(F));
+		
+	initial 
+		S = 5'b0000;
+	always begin
+	# 10 S = S + 1'b1;
+	end
+	
+	initial begin
+		#500 $stop;
+	end
+endmodule
